@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
+Route::post('/articles', 'ArticleController@store')->name('articles.store');
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
+Route::get('/articles/show/{article}', 'ArticleController@show')->name('articles.show');
+Route::get('/articles/edit/{article}', 'ArticleController@edit')->name('articles.edit');
+Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update');
+Route::delete('/articles/{article}', 'ArticleController@destroy')->name('articles.delete');
