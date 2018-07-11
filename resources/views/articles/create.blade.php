@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     記事作成
@@ -35,9 +35,33 @@
                                 <input type="text" name="title" value="{{ old('title') }}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">内容</label>
-                                <textarea class="form-control" name="contents">{{ old('contents') }}</textarea>
+                                <label for="exampleFormControlTextarea1">いつ</label>
+                                <textarea class="form-control" name="when" placeholder="むかしむかし" value="{{ old('when') }}" rows="2"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">どこで</label>
+                                <textarea class="form-control" name="where" placeholder="あるところで" value="{{ old('where') }}" rows="2"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">誰が</label>
+                                <textarea class="form-control" name="who" placeholder="おじいさんとおばあさんが" value="{{ old('who') }}" rows="2"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">何をした</label>
+                                <textarea class="form-control" name="what" placeholder="暮らしていた" value="{{ old('what') }}" rows="2"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">どうして</label>
+                                <textarea class="form-control" name="why" placeholder="お金がそんなにないので" value="{{ old('why') }}" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">どのように</label>
+                                <textarea class="form-control" name="how" placeholder="慎ましく" value="{{ old('how') }}" rows="2"></textarea>
+                            </div>
+
                             <div class="form-group form-check">
                                 <input type="checkbox" name="is_published" value="1" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">公開</label>
