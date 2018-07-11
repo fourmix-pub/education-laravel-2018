@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="3KbZLaTWDb5IasmLSCriVFaMTO1eWI0qwLa1TqHs">
+
+    <title>クックメモ｜MYレシピ作成</title>
+
+    <!-- Scripts -->
+    <script src="http://education-laravel.test/js/app.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="http://education-laravel.test/css/app.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+      <div class="container">
+        <a class="navbar-brand" href="">
+            クックメモ　MYページ
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    馬場友里絵 <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="all_home.html"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="all_home.html" method="POST" style="display: none;">
+                      <input type="hidden" name="_token" value="3KbZLaTWDb5IasmLSCriVFaMTO1eWI0qwLa1TqHs">
+                    </form>
+                  </div>
+                </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+        <main class="py-4">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header">
+                    コメント
+                    </div>
+                    <div class="card-body">
+                      <form action="u_list.html" method="POST">
+                        <input type="hidden" name="_token" value="3KbZLaTWDb5IasmLSCriVFaMTO1eWI0qwLa1TqHs">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">名前</label>
+                            <input type="text" name="title" value="" class="form-control">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">コメント</label>
+                            <textarea class="form-control" name="contents"></textarea>
+                          </div>
+
+                          <a href="all_home.html" class="btn btn-outline-warning btn-lg btn-block">
+                            作成
+                          </a>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+
+                <div class="row justify-content-center">
+                  <div class="col-md-12">
+                    <a href="u_home.html" class="btn btn-outline-secondary btn-lg btn-block">
+                      戻る
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+      </body>
+</html>
