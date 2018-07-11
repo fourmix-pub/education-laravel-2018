@@ -84,9 +84,7 @@
                                 <a href="list.html" class="btn btn-outline-success btn-lg btn-block">
                                   ノート一覧
                               </a><br>
-                                <a href="draft-list.html" class="btn btn-outline-info btn-lg btn-block">
-                                  下書き
-                              </a>
+
                               <br>
                               <br>
                                 <img src="img/books.png"  class="rounded float-right" alt="本">

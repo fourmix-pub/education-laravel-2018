@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
-Route::post('/articles', 'ArticleController@store')->name('articles.store');
+Route::post('/list', 'ArticleController@store')->name('articles.store');
 Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
 Route::get('/articles/show/{article}', 'ArticleController@show')->name('articles.show');
 Route::get('/articles/edit/{article}', 'ArticleController@edit')->name('articles.edit');

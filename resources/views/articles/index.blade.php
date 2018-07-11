@@ -1,43 +1,106 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">記事一覧</div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    @foreach ($articles as $article)
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <h3>
-                                    <a href="{{ route('articles.show', compact('article')) }}">
-                                        {{ $article->title }}
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="3KbZLaTWDb5IasmLSCriVFaMTO1eWI0qwLa1TqHs">
+
+    <title>創作ノート｜メニュー</title>
+
+    <!-- Scripts -->
+    <script src="http://education-laravel.test/js/app.js" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="http://education-laravel.test/css/app.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    創作ノート
+                </a>
+                <nav class="nav nav-pills flex-column flex-sm-row">
+                    <a class="flex-sm-fill text-sm-center nav-link" href="create.html">新規作成</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="list.html">ノート一覧</a>
+                    <a class="flex-sm-fill text-sm-center nav-link" href="draft-list.html">下書き</a>
+                </nav>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    永保彩佳 <span class="caret"></span>
+                                </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="home.html" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
                                     </a>
-                                </h3>
-                                <hr>
-                                <p>{{ $article->created_at }}　{{ $article->status() }}</p>
+
+                                <form id="logout-form" action="home.html" method="POST" style="display: none;">
+                                    <input type="hidden" name="_token" value="3KbZLaTWDb5IasmLSCriVFaMTO1eWI0qwLa1TqHs"> </form>
                             </div>
-                        </div>
-                    @endforeach
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+
+        <main class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">メニュー</div>
+
+                            <div class="card-body">
+                                  @if (session('status'))
+                                      <div class="alert alert-success" role="alert">
+                                          {{ session('status') }}
+                                      </div>
+                                  @endif
+                                <a href="{{ route('articles.create') }}" class="btn btn-outline-primary btn-lg btn-block">
+                                  新規作成
+                              </a><br>
+                                <a href="{ route('articles.lists') }}" class="btn btn-outline-success btn-lg btn-block">
+                                  ノート一覧
+                              </a><br>
+
+                              <br>
+                              <br>
+                                <img src="books.png"  class="rounded float-right" alt="本">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    <br>
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            </a>
-            <a href="{{ route('home') }}" class="btn btn-primary btn-lg btn-block">
-                戻る
-            </a>
-        </div>
-    </div>
-</div>
-@endsection
+</body>
+
+</html>
