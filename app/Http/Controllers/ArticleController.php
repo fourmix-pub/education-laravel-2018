@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
+use App\Repositories\ArticleRepository;
 
 class ArticleController extends Controller
 {
-    protected $articleRepository;
+  protected $articleRepository;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @param ArticleRepository $articleRepository
-     */
-    public function __construct(ArticleRepository $articleRepository)
-    {
-        $this->middleware('auth');
-        $this->articleRepository = $articleRepository;
-    }
-
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct(ArticleRepository $articleRepository)
+  {
+      $this->middleware('auth');
+      $this->articleRepository = $articleRepository;
+  }
     /**
      * Display a listing of the resource.
      *
@@ -49,17 +48,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|string|max:25',
-            'contents' => 'required|string',
-            'is_published' => 'nullable|boolean',
+        $this->validate($request, [  //入力チェック
+          'title' => 'required|string|max:25',
+          'contents' => 'required|string',
+          'is_published' => 'nullable|boolean',
         ]);
 
+        //インサート
         $article = new Article();
         $article->title = $request->input('title');
         $article->contents = $request->input('contents');
-        $article->is_published = $request->input('is_published', false);
-        $article->user_id = $request->user()->id;
+        $article->is_published = $request->input('is_published', false); //false(boolean)忘れない(公開するか)
+        $article->user_id = $request->user()->id; //user_id 誰が作成したか
         $article->save();
 
         return redirect()->route('articles.index')->with('status', '作成しました。');
@@ -84,7 +84,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        return view('articles.edit', compact('article')); //compact arrayを作ってくれる
     }
 
     /**
@@ -96,31 +96,31 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $this->validate($request, [
-            'title' => 'required|string|max:25',
-            'contents' => 'required|string',
-            'is_published' => 'nullable|boolean',
-        ]);
+      $this->validate($request, [  //入力チェック
+        'title' => 'required|string|max:25',
+        'contents' => 'required|string',
+        'is_published' => 'nullable|boolean',
+      ]);
 
-        $article->title = $request->input('title');
-        $article->contents = $request->input('contents');
-        $article->is_published = $request->input('is_published', false);
-        $article->update();
+      $article->title = $request->input('title');
+      $article->contents = $request->input('contents');
+      $article->is_published = $request->input('is_published', false);
+      $article->update();
 
-        return redirect()->route('articles.show', compact('article'))
-            ->with('status', '編集しました。');
+      return redirect()->route('articles.show', compact('article'))
+        ->with('status', '編集しました。');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Article $article
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
-     * @throws \Exception
      */
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('articles.index')->with('status', '削除しました。');
+        return redirect()->route('articles.index')
+          ->with('status', '削除しました。');
     }
 }
