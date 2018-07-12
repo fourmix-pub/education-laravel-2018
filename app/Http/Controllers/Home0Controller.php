@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Note;
+use App\Repositories\NoteRepository;
+
 
 class Home0Controller extends Controller
 {
@@ -12,8 +15,13 @@ class Home0Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct(NoteRepository $noteRepository)
+     {
+         $this->noteRepository = $noteRepository;
+     }
     public function index()
     {
-        return view('home');
+        $notes = Note::all();
+        return view('home',  $this->noteRepository->noteResource());
     }
 }

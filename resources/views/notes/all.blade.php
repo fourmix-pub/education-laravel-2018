@@ -5,24 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">マイノート</div>
+                <div class="card-header">みんなのノート</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     @foreach ($notes as $note)
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h3>
-                                    <a href="{{ route('notes.adminShow', compact('note')) }}">
+                                    <a href="{{ route('notes.show', compact('note')) }}">
                                         {{ $note->title }}
                                     </a>
                                 </h3>
                                 <hr>
-                                <p>{{ $note->created_at }}　{{ $note->status() }}</p>
+                                <p>{{ $note->created_at }}　作者：{{ $note->user->name }}</p>
                             </div>
                         </div>
                     @endforeach

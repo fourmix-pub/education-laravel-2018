@@ -23,35 +23,17 @@
                     どのように：{{ $note->how }}<br>
                 </div>
 
-                <div class="card-footer">登録日時：{{ $note->created_at }}</div>
-                <hr>
-
-                <div class="container">
-                    <div class="row justify-content-Left">
-                        <div class="col-md-8">
-                        <div class="card">
-                          <hr>
-                          <h5 class="card-header">コメント</h5>
-                          <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">お名前</label>
-                                  <input type="text" class="form-control" name="name">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputPassword1">コメント</label>
-                                  <textarea name="comment" class="form-control"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">送信</button>
-                              </form>
-                          </div>
-                      </div>
-                    </div>
-                </div>
+                <div class="card-footer">登録日時：{{ $note->created_at }}　{{ $note->status() }}</div>
             </div>
+        </div>
+    </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <a href="{{ route('notes.edit', compact('note')) }}" class="btn btn-outline-secondary btn-lg btn-block">
+                編集
+            </a>
+
             </a>
             <a href="{{ route('notes.list') }}" class="btn btn-outline-info btn-lg btn-block">
                 戻る

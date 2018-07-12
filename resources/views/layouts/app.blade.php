@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', '創作ノート') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,15 +24,18 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand">
                   創作ノート
                   @guest
                   @else
                   <a href="{{ route('notes.create') }}">
-                    新規作成　
-                </a>|　
+                    新規作成
+                </a>　|　
+                <a href="{{ route('notes.all') }}">
+                  みんなのノート
+                </a>　|　
                   <a href="{{ route('notes.list') }}">
-                    ノート一覧
+                    マイノート
                 </a>
                 @endguest
                 </a>

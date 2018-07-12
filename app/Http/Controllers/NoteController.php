@@ -30,6 +30,16 @@ class NoteController extends Controller
     {
         return view('notes.list', $this->noteRepository->noteResource());
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function all()
+    {
+        return view('notes.all', $this->noteRepository->noteResource());
+    }
+
 
 
 
@@ -87,6 +97,18 @@ class NoteController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Note  $note
+     * @return \Illuminate\Http\Response
+     */
+    public function adminShow(Note $note)
+    {
+        return view('notes.adminShow', compact('note'));
+    }
+
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Note  $note
@@ -116,7 +138,7 @@ class NoteController extends Controller
           'how' => 'required|string',
           'is_published' => 'nullable|boolean',
       ]);
-      
+
       $note->title = $request->input('title');
       $note->when = $request->input('when');
       $note->where = $request->input('where');

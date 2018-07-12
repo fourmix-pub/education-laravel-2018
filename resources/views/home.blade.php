@@ -19,7 +19,29 @@
         <a href="{{ route('login') }}" class="btn btn-outline-primary btn-block ">ログイン</a>
         <br>
         <a href="{{ route('register') }}" class="btn btn-outline-info btn-block">新規登録</a>
-        <img src="img/me.png" class="rounded float-right" alt="growup">
+        <div class="card">
+            <div class="card-header">みんなのノート</div>
+
+            <div class="card-body">
+                @foreach ($notes as $note)
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h3>
+                                <a href="{{ route('notes.show', compact('note')) }}">
+                                    {{ $note->title }}
+                                </a>
+                            </h3>
+                            <hr>
+                            <p>{{ $note->created_at }}　作者：{{ $note->user->name }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+        <img src="notes/me.png" class="rounded float-right" alt="growup">
           @else
           <div class="container">
               <div class="row justify-content-center">
@@ -35,12 +57,15 @@
                               <a href="{{ route('notes.create') }}" class="btn btn-outline-primary btn-lg btn-block">
                                 新規作成
                             </a><br>
+                            <a href="{{ route('notes.all') }}" class="btn btn-outline-info btn-lg btn-block">
+                              みんなのノート
+                            </a><br>
                               <a href="{{ route('notes.list') }}" class="btn btn-outline-success btn-lg btn-block">
-                                ノート一覧
+                                マイノート
                             </a><br>
                         </div>
                     </div>
-                      <img src="img/books.png"  class="rounded float-right" alt="本">
+                      <img src="books.png"  class="rounded float-right" alt="本">
                 </div>
             </div>
         </div>
