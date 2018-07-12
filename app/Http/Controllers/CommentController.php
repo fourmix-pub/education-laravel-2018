@@ -2,38 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Movie;
-use App\Repositories\MovieRepository;
+use App\Comment;
 use Illuminate\Http\Request;
 
-class MovieController extends Controller
+class CommentController extends Controller
 {
-    protected $movieRepository;
-    /**
-     * Create a new controller instance.
-     *
-     * @param MovieRepository $movieRepository
-     */
-    public function __construct(MovieRepository $movieRepository)
-    {
-        $this->movieRepository = $movieRepository;
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function view()
+    public function index()
     {
-        return view('movies.view', $this->movieRepository->movieResource());
+        //
     }
-
-    public function select()
-    {
-        return view('movies.view', $this->movieRepository->movieResource());
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -59,21 +41,21 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Movie  $movie
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie)
+    public function show(Comment $comment)
     {
-        return view('movies.show', compact('movie'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Movie  $movie
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -82,10 +64,10 @@ class MovieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Movie  $movie
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -93,10 +75,10 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Movie  $movie
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $movie)
+    public function destroy(Comment $comment)
     {
         //
     }

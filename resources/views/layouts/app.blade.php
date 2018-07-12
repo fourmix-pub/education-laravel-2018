@@ -50,7 +50,7 @@
                             </li>
                         @else
                             <div class="row">
-                              <a href="mypage.html" style="color:#ddd; font-size:20px;">マイページ</a>
+                              <a href="{{ route('admin.index') }}" style="color:#ddd; font-size:20px;">マイページ</a>
                             </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
