@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Title:{{ $article->title }}　作者：{{ $article->user->name }}</h3>
+                    <h3>Title:{{ $note->title }}　作者：{{ $note->user->name }}</h3>
                 </div>
 
                 <div class="card-body">
@@ -15,26 +15,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ $article->contents }}
+                    {{ $note->contents }}
                 </div>
 
-                <div class="card-footer">登録日時：{{ $article->created_at }}　{{ $article->status() }}</div>
+                <div class="card-footer">登録日時：{{ $note->created_at }}　{{ $note->status() }}</div>
             </div>
         </div>
     </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <a href="{{ route('articles.edit', compact('article')) }}" class="btn btn-warning btn-lg btn-block">
+            <a href="{{ route('notes.edit', compact('note')) }}" class="btn btn-warning btn-lg btn-block">
                 編集
             </a>
 
             </a>
-            <a href="{{ route('articles.index') }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('notes.index') }}" class="btn btn-primary btn-lg btn-block">
                 戻る
             </a>
             <br>
-            <form action="{{ route('articles.delete', compact('article')) }}" method="POST">
+            <form action="{{ route('notes.delete', compact('note')) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger btn-lg btn-block">

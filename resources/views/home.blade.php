@@ -32,10 +32,10 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                              <a href="{{ route('articles.create') }}" class="btn btn-outline-primary btn-lg btn-block">
+                              <a href="{{ route('notes.create') }}" class="btn btn-outline-primary btn-lg btn-block">
                                 新規作成
                             </a><br>
-                              <a href="{{ route('articles.list') }}" class="btn btn-outline-success btn-lg btn-block">
+                              <a href="{{ route('notes.list') }}" class="btn btn-outline-success btn-lg btn-block">
                                 ノート一覧
                             </a><br>
                         </div>

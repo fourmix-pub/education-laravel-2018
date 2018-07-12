@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     @endif
-                        <form action="{{ route('articles.store') }}" method="POST">
+                        <form action="{{ route('notes.store') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">タイトル</label>

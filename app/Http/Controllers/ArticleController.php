@@ -53,27 +53,25 @@ class ArticleController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:25',
-            'when' => 'requied|string',
-            'where' => 'requied|string',
-            'who' => 'requied|string',
-            'what' => 'requied|string',
-            'why' => 'requied|string',
-            'how' => 'requied|string',
+            'when' => 'nullable|string',
+            'where' => 'nullable|string',
+            'who' => 'nullable|string',
+            'what' => 'nullable|string',
+            'why' => 'nullable|string',
+            'how' => 'nullable|string',
             'is_published' => 'nullable|boolean',
         ]);
-
         $article = new Article();
         $article->title = $request->input('title');
-        $article->when = $request->input('when');
-        $article->where = $request->input('where');
-        $article->who = $request->input('who');
-        $article->what = $request->input('what');
-        $article->why = $request->input('why');
-        $article->how = $request->input('how');
+        $article->when = $request->input('when', null);
+        $article->where = $request->input('where', null);
+        $article->who = $request->input('who', null);
+        $article->what = $request->input('what', null);
+        $article->why = $request->input('why', null);
+        $article->how = $request->input('how', null);
         $article->is_published = $request->input('is_published', false);
         $article->user_id = $request->user()->id;
         $article->save();
-
         return redirect()->route('articles.index')->with('status', '作成しました。');
     }
 

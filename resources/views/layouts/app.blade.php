@@ -28,10 +28,10 @@
                   創作ノート
                   @guest
                   @else
-                  <a href="{{ route('articles.create') }}">
+                  <a href="{{ route('notes.create') }}">
                     新規作成　
                 </a>|　
-                  <a href="{{ route('articles.list') }}">
+                  <a href="{{ route('notes.list') }}">
                     ノート一覧
                 </a>
                 @endguest

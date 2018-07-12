@@ -28,20 +28,20 @@
                             </div>
                         </div>
                     @endif
-                        <form action="{{ route('articles.update', compact('article')) }}" method="POST">
+                        <form action="{{ route('notes.update', compact('note')) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">タイトル</label>
-                                <input type="text" name="title" value="{{ $article->title }}" class="form-control">
+                                <input type="text" name="title" value="{{ $note->title }}" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">内容</label>
-                                <textarea class="form-control" name="contents">{{ $article->contents }}</textarea>
+                                <textarea class="form-control" name="contents">{{ $note->contents }}</textarea>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" name="is_published" value="1"
-                                       class="form-check-input" id="exampleCheck1" @if ($article->is_published) checked @endif>
+                                       class="form-check-input" id="exampleCheck1" @if ($note->is_published) checked @endif>
                                 <label class="form-check-label" for="exampleCheck1">公開</label>
                             </div>
                             <button type="submit" class="btn btn-primary">編集</button>
@@ -53,7 +53,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <a href="{{ route('articles.show', compact('article')) }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('notes.show', compact('note')) }}" class="btn btn-primary btn-lg btn-block">
                 戻る
             </a>
         </div>

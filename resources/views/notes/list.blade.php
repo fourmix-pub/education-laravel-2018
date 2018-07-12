@@ -13,16 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @foreach ($articles as $article)
+                    @foreach ($notes as $note)
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h3>
-                                    <a href="{{ route('articles.show', compact('article')) }}">
-                                        {{ $article->title }}
+                                    <a href="{{ route('notes.show', compact('note')) }}">
+                                        {{ $note->title }}
                                     </a>
                                 </h3>
                                 <hr>
-                                <p>{{ $article->created_at }}　{{ $article->status() }}</p>
+                                <p>{{ $note->created_at }}　{{ $note->status() }}</p>
                             </div>
                         </div>
                     @endforeach
