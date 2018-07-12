@@ -42,6 +42,16 @@ class ArticleController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('articles.create');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -51,13 +61,23 @@ class ArticleController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:25',
-            'contents' => 'required|string',
+            'when' => 'requied|string',
+            'where' => 'requied|string',
+            'who' => 'requied|string',
+            'what' => 'requied|string',
+            'why' => 'requied|string',
+            'how' => 'requied|string',
             'is_published' => 'nullable|boolean',
         ]);
 
         $article = new Article();
         $article->title = $request->input('title');
-        $article->contents = $request->input('contents');
+        $article->when = $request->input('when');
+        $article->where = $request->input('where');
+        $article->who = $request->input('who');
+        $article->what = $request->input('what');
+        $article->why = $request->input('why');
+        $article->how = $request->input('how');
         $article->is_published = $request->input('is_published', false);
         $article->user_id = $request->user()->id;
         $article->save();

@@ -86,7 +86,7 @@
                                 <a href="{{ route('articles.create') }}" class="btn btn-outline-primary btn-lg btn-block">
                                   新規作成
                               </a><br>
-                                <a href="{ route('articles.lists') }}" class="btn btn-outline-success btn-lg btn-block">
+                                <a href="{{ route('articles.lists') }}" class="btn btn-outline-success btn-lg btn-block">
                                   ノート一覧
                               </a><br>
 
