@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Movie;
 use Illuminate\Http\Request;
 use App\Repositories\MovieRepository;
 use App\Http\Controllers\Controller;
 
-class MovieContoroller extends Controller
+class MovieController extends Controller
 {
-
+    protected $movieRepository;
 
     public function __construct(MovieRepository $movieRepository)
     {
@@ -23,7 +24,12 @@ class MovieContoroller extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('admin.index', $this->movieRepository->movieResource());
+    }
+
+    public function draft()
+    {
+        return view('admin.draft');
     }
 
     /**
@@ -33,7 +39,7 @@ class MovieContoroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -44,7 +50,22 @@ class MovieContoroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'title' => 'required|string|max:25',
+          'movie_name' => 'required|string|max:25',
+          'contents' => 'required|string',
+          'is_published' => 'nullable|boolean',
+      ]);
+
+      $movie = new Movie();
+      $movie->title = $request->input('title');
+      $movie->movie_name = $request->input('movie_name');
+      $movie->contents = $request->input('contents');
+      $movie->is_published = $request->input('is_published', false);
+      $movie->user_id = $request->user()->id;
+      $movie->save();
+
+      return redirect()->route('admin.index')->with('status', '作成しました。');
     }
 
     /**
@@ -53,9 +74,9 @@ class MovieContoroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
-        //
+        return view('admin.show', compact('movie'));
     }
 
     /**

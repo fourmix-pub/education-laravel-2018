@@ -25,8 +25,8 @@
                               </div>
                           </div>
                       @endif
-                          <form action="#" method="POST">
-                              <!-- {{ csrf_field() }} -->
+                          <form action="{{ route('admin.store') }}" method="POST">
+                              {{ csrf_field() }}
                               <div class="form-group">
                                   <label for="exampleInputEmail1">タイトル</label>
                                   <input type="text" name="title" value="" class="form-control">

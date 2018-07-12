@@ -23,16 +23,18 @@
                           </div>
                       @endif
 
+                      @foreach ($movies as $movie)
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <h3>
-                                      <a href="mypage_show.html">
-                                        タイトル
+                                      <a href="{{ route('admin.show', compact('movie')) }}">
+                                        {{ $movie->title }}
                                       </a>
                                   </h3>
                                   <hr>
                               </div>
                           </div>
+                      @endforeach
                   </div>
               </div>
           </div>
@@ -40,13 +42,13 @@
       <br>
       <div class="row justify-content-center">
           <div class="col-md-12">
-            <a href="#" class="btn btn-primary2 btn-lg btn-block">
+            <a href="{{ route('admin.draft') }}" class="btn btn-primary2 btn-lg btn-block">
                 下書き
             </a>
-            <a href="#" class="btn btn-primary2 btn-lg btn-block">
+            <a href="{{ route('admin.create') }}" class="btn btn-primary2 btn-lg btn-block">
                 新規作成
             </a>
-            <a href="#" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('index') }}" class="btn btn-primary btn-lg btn-block">
                 トップに戻る
             </a>
           </div>

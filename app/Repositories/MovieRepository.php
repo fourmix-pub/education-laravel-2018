@@ -8,13 +8,8 @@ class MovieRepository
 {
     public function movieResource()
     {
-        $movies = Movie::all();
-        return compact('movies');
-    }
-
-    public function movie()
-    {
-        $movies = Movie::where('movie_name','LIKE','%$%')->get();
-        return compact('movies');
+        $search = request('search', []);
+        $movies = Movie::filter(collect($search))->get();
+        return compact('movies', 'search');
     }
 }

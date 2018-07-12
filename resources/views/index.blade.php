@@ -10,13 +10,6 @@
         <div class="container">
           <div class="row justify-content-center">
               <div class="col-md-12">
-                  <form action="{{ route('movies.select') }}" method="POST" class="form-inline" style="margin-top:150px;">
-                    {{ csrf_field() }}
-                    <div class="form-group mx-sm-3 mb-2">
-                      <input type="password" class="form-control" id="inputPassword2" placeholder="映画名">
-                    </div>
-                    <input type="submit" class="btn btn-primary mb-2" value="検索">
-                  </form>
               </div>
           </div>
         </div>

@@ -13,7 +13,7 @@
                               {{ session('status') }}
                           </div>
                       @endif
-                      
+
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <h3>
@@ -29,7 +29,7 @@
           <div class="row">
               <div class="col-md-12">
                   </a>
-                  <a href="mypage.html" class="btn btn-primary btn-lg btn-block">
+                  <a href="{{ route('admin.index') }}" class="btn btn-primary btn-lg btn-block">
                       戻る
                   </a>
                 </a>

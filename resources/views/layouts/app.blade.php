@@ -42,6 +42,13 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                          <form action="{{ route('movies.select') }}" method="POST" class="form-inline" style="margin-top:150px;">
+                            {{ csrf_field() }}
+                            <div class="form-group mx-sm-3 mb-2">
+                              <input type="password" class="form-control" id="inputPassword2" placeholder="映画名">
+                            </div>
+                            <input type="submit" class="btn btn-primary mb-2" value="検索">
+                          </form>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -49,6 +56,12 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
+                          <form action="{{ route('movies.view') }}" method="GET" class="form-inline" style="margin-top:150px;">
+                            <div class="form-group mx-sm-3 mb-2">
+                              <input type="text" name="search[movie_name]" value="{{ $search['movie_name'] or null }}" class="form-control" id="inputPassword2" placeholder="映画名">
+                            </div>
+                            <input type="submit" class="btn btn-primary mb-2" value="検索">
+                          </form>
                             <div class="row">
                               <a href="{{ route('admin.index') }}" style="color:#ddd; font-size:20px;">マイページ</a>
                             </div>
