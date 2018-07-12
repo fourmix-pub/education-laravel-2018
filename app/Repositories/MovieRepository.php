@@ -12,4 +12,10 @@ class MovieRepository
         $movies = Movie::filter(collect($search))->get();
         return compact('movies', 'search');
     }
+
+    public function userMovieResource()
+    {
+      $movies = request()->user()->movies;
+      return compact('movies');
+    }
 }

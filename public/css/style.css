@@ -1,0 +1,139 @@
+body{
+	font-family: '游ゴシック';
+	color: #303030;
+}
+
+.background {
+  background-image: url(../picture/background.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.background2 {
+  background-image: url(../picture/background2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+.jumbotron {
+	padding-top: 0px;
+	background: url(../picture/test2.png);
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 300px;
+ border-radius: 0px;
+}
+
+.btn-block {
+    display: block;
+    width: 50%;
+}
+
+.btn-primary {
+    color: #8b0000;
+    background-color: #CCCCCC;
+    border-color: #B18904;
+}
+
+.btn-primary:hover {
+    color: #DDD;
+    background-color: #404040;
+    border-color: #ddd;
+}
+
+.btn-primary2 {
+    color: #8b0000;
+    background-color: #B18904;
+    border-color: #B18904;
+}
+
+.btn-primary2:hover {
+    color: #DDD;
+    background-color: #404040;
+    border-color: #ddd;
+}
+
+.btn-primary3 {
+    color: #eee;
+    background-color: #8b0000;
+    border-color: #B18904;
+}
+
+.btn-primary3:hover {
+    color: #8b0000;
+    background-color: #B18904;
+    border-color: #ddd;
+}
+
+.btn-danger {
+    color: #DDD;
+    background-color: #202020;
+    border-color: #DDD;
+}
+
+.btn-danger:hover {
+    color: #202020;
+    background-color: #ddd;
+    border-color: #202020;
+}
+
+
+.container{
+	margin-top: 60px;
+}
+
+.back{
+	background-color: #7f0000;
+}
+
+.back2{
+	background-color: #303030;
+}
+
+.card {
+    background-color: #eeeeee;
+}
+
+a{
+	text-decoration: none;
+	color: #8b0000;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #DC143C;
+}
+
+			h1{
+				text-align: center;
+				font-size: 40px;
+				color:#DDDDDD;
+			 position: relative;
+			 display: inline-block;
+			 padding: 0 55px;
+			 }
+
+			 h1:before, h1:after{
+			 content: '';
+			 position: absolute;
+			 top: 50%;
+			 display: inline-block;
+			 width: 45px;
+			 height: 2px;
+			 border-top: solid 1px #DDD;
+			 border-bottom: solid 1px #DDD;
+			 }
+
+			 h1:before {left:0;}
+			 h1:after {right: 0;}
+
+.article{
+	padding:20px;
+	font-size: 20px;
+	background-color: #DDD;
+}
