@@ -29,6 +29,15 @@ body{
  border-radius: 0px;
 }
 
+.jumbotron2 {
+	padding-top: 0px;
+	background: url(../picture/test2.png);
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 100px;
+ border-radius: 0px;
+}
+
 .btn-block {
     display: block;
     width: 50%;
