@@ -29,6 +29,7 @@ class MovieController extends Controller
         return view('movies.view', $this->movieRepository->movieResource());
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +59,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('movies.show', compact('movie'));
     }
 
     /**

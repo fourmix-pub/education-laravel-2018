@@ -10,7 +10,7 @@
         <div class="container">
           <div class="row justify-content-center">
               <div class="col-md-12">
-                  <form action="{{ route('movies.view') }}" method="POST" class="form-inline" style="margin-top:150px;">
+                  <form action="#" method="POST" class="form-inline" style="margin-top:150px;">
                     {{ csrf_field() }}
                     <div class="form-group mx-sm-3 mb-2">
                       <input type="password" class="form-control" id="inputPassword2" placeholder="映画名">
@@ -40,7 +40,7 @@
 
                 <br>
                 <div class="text-center">
-                <a href="index.html" class="btn btn-primary2 btn-lg btn-block">
+                <a href="{{ route('movies.view') }}" class="btn btn-primary2 btn-lg btn-block">
                     もっとみる
                 </a>
                 </div>
