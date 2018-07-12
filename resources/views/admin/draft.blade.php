@@ -14,17 +14,18 @@
                           </div>
                       @endif
 
+                      @foreach ($movies as $movie)
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <h3>
-                                      <a href="draft_show.html">
-                                        タイトル
+                                      <a href="{{ route('admin.show', compact('movie')) }}">
+                                        {{ $movie->title }}
+                                      </a>
                                   </h3>
                                   <hr>
                               </div>
                           </div>
-                  </div>
-              </div>
+                      @endforeach
 
           <div class="row">
               <div class="col-md-12">

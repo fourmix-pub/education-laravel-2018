@@ -52,8 +52,8 @@
       <br>
       <div class="row justify-content-center">
           <div class="col-md-12">
-              <a href="{{ route('index') }}" class="btn btn-primary btn-lg btn-block">
-                  トップに戻る
+              <a href="{{ route('admin.index') }}" class="btn btn-primary btn-lg btn-block">
+                  戻る
               </a>
           </div>
       </div>

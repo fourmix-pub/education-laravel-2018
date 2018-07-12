@@ -26,12 +26,23 @@
        <br>
        <div class="row justify-content-center">
            <div class="col-md-12">
-
-               <a href="index.html" class="btn btn-primary btn-lg btn-block">
+             @if ({{ $movie->is_published }} === 0)
+             <a href="c{{ route('admin.edit') }}" class="btn btn-primary3 btn-lg btn-block">
+                編集
+            </a>
+             @endif
+               <a href="{{ route('admin.index') }}" class="btn btn-primary btn-lg btn-block">
                    戻る
                </a>
                <br>
-               <form action="{{ route('articles.delete', compact('article')) }}" method="POST">
+               <form action="{{ route('admin.delete', compact('movie')) }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">
+                        削除
+                    </button>
+                </form>
+
            </div>
        </div>
    </div>

@@ -29,7 +29,7 @@ class MovieController extends Controller
 
     public function draft()
     {
-        return view('admin.draft');
+        return view('admin.draft', $this->movieRepository->movieResource());
     }
 
     /**
@@ -85,7 +85,7 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
         //
     }
@@ -108,8 +108,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+     public function destroy(Movie $movie)
+     {
+         $movie->delete();
+         return redirect()->route('admin.index')->with('status', '削除しました。');
+     }
 }
