@@ -31,15 +31,7 @@ class ArticleController extends Controller
         return view('articles.index', $this->articleRepository->articleResource());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('articles.create');
-    }
+
 
     /**
      * Show the form for creating a new resource.
