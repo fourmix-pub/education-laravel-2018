@@ -36,9 +36,30 @@
                                 <input type="text" name="title" value="{{ $note->title }}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">内容</label>
-                                <textarea class="form-control" name="contents">{{ $note->contents }}</textarea>
+                                <label for="exampleInputPassword1">いつ</label>
+                                <textarea class="form-control" name="when">{{ $note->when }}</textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">どこで</label>
+                                <textarea class="form-control" name="where">{{ $note->where }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">誰が</label>
+                                <textarea class="form-control" name="who">{{ $note->who }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">何をした</label>
+                                <textarea class="form-control" name="what">{{ $note->what }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">なぜ</label>
+                                <textarea class="form-control" name="why">{{ $note->why }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">どのように</label>
+                                <textarea class="form-control" name="how">{{ $note->how }}</textarea>
+                            </div>
+
                             <div class="form-group form-check">
                                 <input type="checkbox" name="is_published" value="1"
                                        class="form-check-input" id="exampleCheck1" @if ($note->is_published) checked @endif>

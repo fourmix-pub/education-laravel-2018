@@ -15,7 +15,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{ $note->contents }}
+                    いつ：{{ $note->when }}<br>
+                    どこで：{{ $note->where }}<br>
+                    誰が：{{ $note->who }}<br>
+                    何をした：{{ $note->what }}<br>
+                    なぜ：{{ $note->why }}<br>
+                    どのように：{{ $note->how }}<br>
                 </div>
 
                 <div class="card-footer">登録日時：{{ $note->created_at }}　{{ $note->status() }}</div>
@@ -25,19 +30,19 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <a href="{{ route('notes.edit', compact('note')) }}" class="btn btn-warning btn-lg btn-block">
+            <a href="{{ route('notes.edit', compact('note')) }}" class="btn btn-outline-primary btn-lg btn-block">
                 編集
             </a>
 
             </a>
-            <a href="{{ route('notes.index') }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('notes.list') }}" class="btn btn-outline-info btn-lg btn-block">
                 戻る
             </a>
             <br>
             <form action="{{ route('notes.delete', compact('note')) }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button type="submit" class="btn btn-danger btn-lg btn-block">
+                <button type="submit" class="btn btn-outline-danger btn-lg btn-block">
                     削除
                 </button>
             </form>

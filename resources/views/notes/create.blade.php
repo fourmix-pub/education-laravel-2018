@@ -32,34 +32,34 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">タイトル</label>
-                                <input type="text" name="title" value="{{ old('title') }}" class="form-control">
+                                <input type="text" name="title" placeholder="桃太郎" value="{{ old('title') }}" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">いつ</label>
-                                <textarea class="form-control" name="when" placeholder="むかしむかし" value="{{ old('when') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="when" placeholder="むかしむかし" 　rows="2">{{ old('when') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">どこで</label>
-                                <textarea class="form-control" name="where" placeholder="あるところで" value="{{ old('where') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="where" placeholder="あるところで"　rows="2">{{ old('when') }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">誰が</label>
-                                <textarea class="form-control" name="who" placeholder="おじいさんとおばあさんが" value="{{ old('who') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="who" placeholder="おじいさんとおばあさんが" rows="2">{{ old('who') }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">何をした</label>
-                                <textarea class="form-control" name="what" placeholder="暮らしていた" value="{{ old('what') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="what" placeholder="暮らしていた"  rows="2">{{ old('what') }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">どうして</label>
-                                <textarea class="form-control" name="why" placeholder="お金がそんなにないので" value="{{ old('why') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="why" placeholder="お金もなく子供もいないので" rows="2">{{ old('why') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">どのように</label>
-                                <textarea class="form-control" name="how" placeholder="慎ましく" value="{{ old('how') }}" rows="2"></textarea>
+                                <textarea class="form-control" name="how" placeholder="慎ましく" rows="2">{{ old('how') }}</textarea>
                             </div>
 
                             <div class="form-group form-check">

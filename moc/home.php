@@ -79,7 +79,7 @@
             <a href="login.html" class="btn btn-outline-primary btn-block ">ログイン</a>
             <br>
             <a href="signup.html" class="btn btn-outline-info btn-block">新規登録</a>
-            <img src="img/me.png" class="rounded float-right" alt="双葉">
+            <img src="img/me.png" class="rounded float-right" alt="growup">
 
         </div>
     </main>

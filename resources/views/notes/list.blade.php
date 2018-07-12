@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">記事一覧</div>
+                <div class="card-header">ノート一覧</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -34,7 +34,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             </a>
-            <a href="{{ route('home') }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('home') }}" class="btn btn-outline-primary btn-lg btn-block">
                 戻る
             </a>
         </div>

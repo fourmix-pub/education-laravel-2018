@@ -28,7 +28,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view('notes.index', $this->noteRepository->noteResource());
+        return view('notes.list', $this->noteRepository->noteResource());
     }
 
 
@@ -72,7 +72,7 @@ class NoteController extends Controller
         $note->is_published = $request->input('is_published', false);
         $note->user_id = $request->user()->id;
         $note->save();
-        return redirect()->route('notes.index')->with('status', '作成しました。');
+        return redirect()->route('notes.list')->with('status', '作成しました。');
     }
 
     /**
@@ -106,19 +106,30 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        $this->validate($request, [
-            'title' => 'required|string|max:25',
-            'contents' => 'required|string',
-            'is_published' => 'nullable|boolean',
-        ]);
-
-        $note->title = $request->input('title');
-        $note->contents = $request->input('contents');
-        $note->is_published = $request->input('is_published', false);
-        $note->update();
-
+      $this->validate($request, [
+          'title' => 'required|string|max:25',
+          'when' => 'required|string',
+          'where' => 'required|string',
+          'who' => 'required|string',
+          'what' => 'required|string',
+          'why' => 'required|string',
+          'how' => 'required|string',
+          'is_published' => 'nullable|boolean',
+      ]);
+      
+      $note->title = $request->input('title');
+      $note->when = $request->input('when');
+      $note->where = $request->input('where');
+      $note->who = $request->input('who');
+      $note->what = $request->input('what');
+      $note->why = $request->input('why');
+      $note->how = $request->input('how');
+      $note->is_published = $request->input('is_published', false);
+      $note->user_id = $request->user()->id;
+      $note->update();
         return redirect()->route('notes.show', compact('note'))
-            ->with('status', '編集しました。');
+        ->with('status', '編集しました。');
+
     }
 
     /**
@@ -131,6 +142,6 @@ class NoteController extends Controller
     public function destroy(Note $note)
     {
         $note->delete();
-        return redirect()->route('notes.index')->with('status', '削除しました。');
+        return redirect()->route('notes.list')->with('status', '削除しました。');
     }
 }
