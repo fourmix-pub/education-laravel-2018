@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Note;
-use App\Repositories\NoteRepository;
+use App\Repositories\CommentRepository;
 use Illuminate\Http\Request;
 
-class NoteController extends Controller
+
+class CommentController extends Controller
 {
-    protected $noteRepository;
+    protected $commentRepository;
 
     /**
      * Create a new controller instance.
      *
-     * @param NoteRepository $noteRepository
+     * @param CommentRepository $commentRepository
      */
-    public function __construct(NoteRepository $noteRepository)
+    public function __construct(CommentRepository $commentRepository)
     {
         $this->middleware('auth');
-        $this->noteRepository = $noteRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -28,7 +30,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view('notes.list', $this->noteRepository->noteResource());
+        return view('comments.list', $this->commentRepository->commentResource());
     }
     /**
      * Display a listing of the resource.
@@ -37,7 +39,7 @@ class NoteController extends Controller
      */
     public function all()
     {
-        return view('notes.all', $this->noteRepository->noteResource());
+        return view('comments.all', $this->commentRepository->commentResource());
     }
 
 
@@ -50,7 +52,7 @@ class NoteController extends Controller
      */
     public function create()
     {
-        return view('notes.create');
+        return view('comments.create');
     }
 
     /**
@@ -59,64 +61,64 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Note $note)
     {
         $this->validate($request, [
             'user_nm' => 'required|string|max:25',
             'content' => 'required|string',
 
         ]);
-        $note = new Note();
-        $note->user_nm = $request->input('user_nm');
-        $note->content = $request->input('content');
-        $note->user_id = $request->user()->id;
-        $note->note_id = $request->note()->id;
-        $note->save();
-        return redirect()->route('notes.list')->with('status', '作成しました。');
+        $comment = new Comment();
+        $comment->user_nm = $request->input('user_nm');
+        $comment->content = $request->input('content');
+        $comment->note_id = $note->id;
+        $comment->user_id = $request->user()->id;
+        $comment->save();
+        return redirect()->route('notes.show', compact('note'))->with('status', '送信しました。');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Note  $note
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Note $note)
+    public function show(Comment $comment)
     {
-        return view('notes.show', compact('note'));
+        return view('comments.show', compact('comment'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Note  $note
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function adminShow(Note $note)
+    public function adminShow(Comment $comment)
     {
-        return view('notes.adminShow', compact('note'));
+        return view('comments.adminShow', compact('comment'));
     }
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Note  $note
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Note $note)
+    public function edit(Comment $comment)
     {
-        return view('notes.edit', compact('note'));
+        return view('comments.edit', compact('comment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Note  $note
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Note $note)
+    public function update(Request $request, Comment $comment)
     {
       $this->validate($request, [
           'title' => 'required|string|max:25',
@@ -129,17 +131,17 @@ class NoteController extends Controller
           'is_published' => 'nullable|boolean',
       ]);
 
-      $note->title = $request->input('title');
-      $note->when = $request->input('when');
-      $note->where = $request->input('where');
-      $note->who = $request->input('who');
-      $note->what = $request->input('what');
-      $note->why = $request->input('why');
-      $note->how = $request->input('how');
-      $note->is_published = $request->input('is_published', false);
-      $note->user_id = $request->user()->id;
-      $note->update();
-        return redirect()->route('notes.show', compact('note'))
+      $comment->title = $request->input('title');
+      $comment->when = $request->input('when');
+      $comment->where = $request->input('where');
+      $comment->who = $request->input('who');
+      $comment->what = $request->input('what');
+      $comment->why = $request->input('why');
+      $comment->how = $request->input('how');
+      $comment->is_published = $request->input('is_published', false);
+      $comment->user_id = $request->user()->id;
+      $comment->update();
+        return redirect()->route('comments.show', compact('comment'))
         ->with('status', '編集しました。');
 
     }
@@ -147,13 +149,13 @@ class NoteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Note $note
+     * @param  \App\Comment $comment
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function destroy(Note $note)
+    public function destroy(Comment $comment)
     {
-        $note->delete();
-        return redirect()->route('notes.list')->with('status', '削除しました。');
+        $comment->delete();
+        return redirect()->route('comments.list')->with('status', '削除しました。');
     }
 }

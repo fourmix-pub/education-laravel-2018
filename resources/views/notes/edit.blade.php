@@ -74,7 +74,7 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <a href="{{ route('notes.show', compact('note')) }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('notes.adminShow', compact('note')) }}" class="btn btn-primary btn-lg btn-block">
                 戻る
             </a>
         </div>

@@ -151,7 +151,7 @@ class NoteController extends Controller
       $note->is_published = $request->input('is_published', false);
       $note->user_id = $request->user()->id;
       $note->update();
-        return redirect()->route('notes.show', compact('note'))
+        return redirect()->route('notes.adminShow', compact('note'))
         ->with('status', '編集しました。');
 
     }

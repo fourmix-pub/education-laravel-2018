@@ -2,7 +2,9 @@
 
 use Faker\Factory as Faker;
 
-$factory->define(App\note::class, function()use ($faker) {
+$faker = Faker::create('ja_JP');
+
+$factory->define(App\Note::class, function()use ($faker) {
     return [
       'user_id' => 1,
       'title' => $faker->text(25),

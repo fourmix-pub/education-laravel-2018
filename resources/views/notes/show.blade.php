@@ -58,14 +58,34 @@
                           <hr>
                           <h5 class="card-header">コメントする</h5>
                           <div class="card-body">
-                            <form action="{{ route('comment') }}" method="POST">                                  {{ csrf_field() }}
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            @if (count($errors) > 0)
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-ban"></i> エラー!</h4>
+                                            @foreach ($errors->all() as $error)
+                                                <span class="glyphicon glyphicon-exclamation-sign"></span> {{ $error }}<br>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif    
+
+                            <form action="{{ route('comment', compact('note')) }}" method="POST">
+                              {{ csrf_field() }}
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">お名前</label>
-                                  <input type="text" class="form-control" name="name">
+                                  <input type="text" class="form-control" name="user_nm">
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">コメント</label>
-                                  <textarea name="comment" class="form-control"></textarea>
+                                  <textarea name="content" class="form-control"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">送信</button>
                               </form>

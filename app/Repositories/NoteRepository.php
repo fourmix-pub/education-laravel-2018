@@ -8,14 +8,14 @@ class NoteRepository
 {
     public function noteResource()
     {
-        $notes = Note::published()->get();
+        $notes = Note::published()->paginate(10);
 
         return compact('notes');
     }
 
     public function myNoteResource()
     {
-        $notes = request()->user()->notes;
+        $notes = request()->user()->notes()->paginate(10);
 
         return compact('notes');
     }

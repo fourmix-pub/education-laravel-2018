@@ -22,6 +22,9 @@
                         </div>
                     @endforeach
                 </div>
+                <div div style="display:table;margin: 0 auto">
+                  {{ $notes->links() }}
+                </div>
             </div>
         </div>
     </div>

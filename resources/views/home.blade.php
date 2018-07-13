@@ -36,12 +36,15 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
-    </div>
-</div>
 
-        <img src="notes/me.png" class="rounded float-right" alt="growup">
+            </div>
+            <div div style="display:table;margin: 0 auto">
+            {{ $notes->links() }}
+          </div>
+        </div>
+        <img src="{{ asset('img/me.png') }}" class="rounded float-right" alt="growup">
+    </div>
+
           @else
           <div class="container">
               <div class="row justify-content-center">
@@ -63,9 +66,10 @@
                               <a href="{{ route('notes.list') }}" class="btn btn-outline-success btn-lg btn-block">
                                 マイノート
                             </a><br>
+
                         </div>
                     </div>
-                      <img src="books.png"  class="rounded float-right" alt="本">
+                      <img src="{{ asset('img/books.png') }}"  class="rounded float-right" alt="本">
                 </div>
             </div>
         </div>
