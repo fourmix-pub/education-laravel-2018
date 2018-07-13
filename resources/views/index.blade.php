@@ -26,7 +26,7 @@
                   <h3>
                       <a href="{{ route('movies.show', compact('movie')) }}">
                           <span style="color:#B18904">{{ $movie->title }}</span></a>
-                          <span style="color:#DDDDDD">{{ $movie->user->name }}</span>
+                          <span style="color:#DDDDDD; font-size:20px">{{ $movie->user->name }}</span>
                   </h3>
                   <span style="color:#DDDDDD; font-size:20px">{{ $movie->movie_name }}</span>
                   <span style="color:#101010">{{ $movie->created_at }}</span>
