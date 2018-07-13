@@ -31,7 +31,8 @@ class MovieController extends Controller
 
     public function draft()
     {
-        return view('admin.draft', $this->movieRepository->movieResource());
+
+        return view('admin.draft', $this->movieRepository->draftMovieResource());
     }
 
     /**

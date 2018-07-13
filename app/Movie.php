@@ -24,6 +24,11 @@ class Movie extends Model
       return $query->where('is_published', true);
   }
 
+  public function scopeNotPublished($query)
+  {
+      return $query->where('is_published', false);
+  }
+
   public function comments()
   {
       return $this->hasMany(Comment::class, 'movie_id', 'id');

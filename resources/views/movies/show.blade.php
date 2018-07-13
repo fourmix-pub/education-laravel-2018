@@ -47,9 +47,9 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="exampleInputEmail1">コメント</label>
-                    <input type="text"  name="contents" class="form-control" value="{{ old('contents') }}" id="exampleInputEmail1">
+                    <textarea class="form-control" name="contents" placeholder="300字以内">{{ old('contents') }}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">投稿</button>
+                <button type="submit" class="btn btn-primary5">投稿</button>
             </form>
             </div>
         </div>

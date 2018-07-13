@@ -24,4 +24,10 @@ class MovieRepository
       $movies = Movie::published()->latest()->limit(3)->get();
       return compact('movies');
     }
+
+    public function draftMovieResource()
+    {
+      $movies = Movie::notPublished()->latest()->get();
+      return compact('movies');
+    }
 }

@@ -4,9 +4,9 @@
 <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-12">
-            <h1>下書き</h1>
 
                 <div class="card">
+                    <div class="card-header">下書き</div>
                     <div class="card-body">
                        @if (session('status'))
                             <div class="alert alert-success" role="alert">
