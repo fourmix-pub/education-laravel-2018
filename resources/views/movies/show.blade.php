@@ -31,7 +31,8 @@
                     <div class="card">
                         <div class="card-body">
                           <div class="text">{{ $comment->contents }}</div>
-                          <div class="name">{{ $comment->user->name }}</div>
+                          <span class="name">{{ $comment->created_at }}</span>
+                          <span>{{ $comment->user->name }}</span>
                         </div>
                     </div>
                 </div>
@@ -39,6 +40,7 @@
             @endforeach
           </div>
 
+    @auth
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -54,6 +56,7 @@
             </div>
         </div>
     </div>
+    @endauth
 
     <div class="container text-center">
       <div class="row justify-content-center">
