@@ -49,12 +49,11 @@
                           </div>
                         </div>
                         @endforeach
-
+                        <br>
                     <div class="container">
                     <div class="row justify-content-Left">
                         <div class="col-md-8">
                           <div class="card">
-                          <hr>
                           <h5 class="card-header">コメントする</h5>
                           <div class="card-body">
                             @if (session('status'))
@@ -78,10 +77,6 @@
 
                             <form action="{{ route('comment', compact('note')) }}" method="POST">
                               {{ csrf_field() }}
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">お名前</label>
-                                  <input type="text" class="form-control" name="user_nm">
-                                </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">コメント</label>
                                   <textarea name="content" class="form-control"></textarea>

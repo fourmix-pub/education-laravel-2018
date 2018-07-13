@@ -64,12 +64,10 @@ class CommentController extends Controller
     public function store(Request $request, Note $note)
     {
         $this->validate($request, [
-            'user_nm' => 'required|string|max:25',
             'content' => 'required|string',
 
         ]);
         $comment = new Comment();
-        $comment->user_nm = $request->input('user_nm');
         $comment->content = $request->input('content');
         $comment->note_id = $note->id;
         $comment->user_id = $request->user()->id;
