@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Note;
-use App\Comment;
 use App\Repositories\NoteRepository;
 use Illuminate\Http\Request;
 
@@ -29,7 +28,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view('notes.list', $this->noteRepository->myNoteResource());
+        return view('notes.list', $this->noteRepository->noteResource());
     }
     /**
      * Display a listing of the resource.
@@ -63,25 +62,15 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|string|max:25',
-            'when' => 'required|string',
-            'where' => 'required|string',
-            'who' => 'required|string',
-            'what' => 'required|string',
-            'why' => 'required|string',
-            'how' => 'required|string',
-            'is_published' => 'nullable|boolean',
+            'user_nm' => 'required|string|max:25',
+            'content' => 'required|string',
+
         ]);
         $note = new Note();
-        $note->title = $request->input('title');
-        $note->when = $request->input('when');
-        $note->where = $request->input('where');
-        $note->who = $request->input('who');
-        $note->what = $request->input('what');
-        $note->why = $request->input('why');
-        $note->how = $request->input('how');
-        $note->is_published = $request->input('is_published', false);
+        $note->user_nm = $request->input('user_nm');
+        $note->content = $request->input('content');
         $note->user_id = $request->user()->id;
+        $note->note_id = $request->note()->id;
         $note->save();
         return redirect()->route('notes.list')->with('status', '作成しました。');
     }
@@ -94,7 +83,6 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        $note->load(['comments']);
         return view('notes.show', compact('note'));
     }
 

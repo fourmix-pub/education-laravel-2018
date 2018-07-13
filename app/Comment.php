@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Note extends Model
+class comment extends Model
 {
   protected $casts = [
       'is_published' => 'boolean',
@@ -22,16 +22,6 @@ class Note extends Model
   public function user()
   {
       return $this->hasOne(User::class, 'id', 'user_id');
-  }
-
-  public function comments()
-  {
-    return $this->hasMany(Comment::class, 'note_id', 'id');
-  }
-
-  public function scopePublished($query)
-  {
-      return $query->where('is_published', true);
   }
 
 }

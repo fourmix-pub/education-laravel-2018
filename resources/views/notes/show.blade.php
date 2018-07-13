@@ -27,13 +27,38 @@
                 <hr>
 
                 <div class="container">
+                  <div class="row justify-content-Left">
+                      <div class="col-md-8">
+                      <div class="card">
+                        <hr>
+                        @foreach($note->comments as $comment)
+                        <h5 class="card-header">コメント</h5>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="card text-left">
+                                <div class="card-header">
+                                {{ $comment->user_nm }}
+                                </div>
+                                <div class="card-body">
+                                  <p class="card-text">
+                                  {{ $comment->content}}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        @endforeach
+                        <hr>
+                    <div class="container">
                     <div class="row justify-content-Left">
                         <div class="col-md-8">
-                        <div class="card">
+                          <div class="card">
                           <hr>
-                          <h5 class="card-header">コメント</h5>
+                          <h5 class="card-header">コメントする</h5>
                           <div class="card-body">
-                            <form>
+                            <form action="{{ route('comment') }}" method="POST">                                  {{ csrf_field() }}
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">お名前</label>
                                   <input type="text" class="form-control" name="name">
@@ -57,13 +82,6 @@
                 戻る
             </a>
             <br>
-            <form action="{{ route('notes.delete', compact('note')) }}" method="POST">
-                {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-                <button type="submit" class="btn btn-outline-danger btn-lg btn-block">
-                    削除
-                </button>
-            </form>
         </div>
     </div>
 </div>
