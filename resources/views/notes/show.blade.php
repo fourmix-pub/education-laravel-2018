@@ -30,9 +30,8 @@
                   <div class="row justify-content-Left">
                       <div class="col-md-8">
                       <div class="card">
-                        <hr>
-                        @foreach($note->comments as $comment)
                         <h5 class="card-header">コメント</h5>
+                        @foreach($note->comments as $comment)
                         <div class="card-body">
                           <div class="row">
                             <div class="col-md-12">
@@ -50,7 +49,7 @@
                           </div>
                         </div>
                         @endforeach
-                        <hr>
+
                     <div class="container">
                     <div class="row justify-content-Left">
                         <div class="col-md-8">
@@ -75,7 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif    
+                            @endif
 
                             <form action="{{ route('comment', compact('note')) }}" method="POST">
                               {{ csrf_field() }}
