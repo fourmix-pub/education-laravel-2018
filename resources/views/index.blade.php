@@ -20,12 +20,21 @@
       </div>
 
       <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-12 article">
-                <a href="#">タイトル</a>
+      @foreach ($movies as $movie)
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3>
+                      <a href="{{ route('movies.show', compact('movie')) }}">
+                          <span class="left">{{ $movie->title }}</span></a>
+                          <span class="margin">{{ $movie->user->name }}</span>
+                  </h3>
+                  <span class="left">{{ $movie->movie_name }}</span>
+                  <span class="margin">{{ $movie->created_at }}</span>
+                  <hr>
               </div>
-            </div>
-            <br>
+          </div>
+      @endforeach
+      </div>
 
                 <br>
                 <div class="text-center">

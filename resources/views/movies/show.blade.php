@@ -13,12 +13,6 @@
 
                   <div class="card-body">
                     {{ $movie->contents }}
-
-                     @if (session('status'))
-                          <div class="alert alert-success" role="alert">
-                              {{ session('status') }}
-                          </div>
-                      @endif
                   </div>
 
                   <div class="card-footer">
@@ -34,9 +28,9 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-              <form action="{{ route('comment.store', compact('movie')) }}" method="POST">
+              <form class="back_white" action="{{ route('comment.store', compact('movie')) }}" method="POST">
                 {{ csrf_field() }}
-                <div class="form-group" style="background-color: #DDDDDD;">
+                <div class="form-group">
                     <label for="exampleInputEmail1">コメント</label>
                     <input type="text"  name="contents" class="form-control" value="{{ old('contents') }}" id="exampleInputEmail1">
                 </div>

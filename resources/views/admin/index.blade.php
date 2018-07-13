@@ -25,6 +25,7 @@
                   <div class="card-body">
 
                       @foreach ($movies as $movie)
+                      <div class="border">
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <h3>
@@ -33,9 +34,10 @@
                                       </a>
                                       {{ $movie->movie_name }}
                                   </h3>
-                                  <hr>
+                                  <hr color="white">
                               </div>
                           </div>
+                      </div>
                       @endforeach
                   </div>
               </div>
@@ -49,9 +51,6 @@
             </a>
             <a href="{{ route('admin.create') }}" class="btn btn-primary2">
                 新規作成
-            </a>
-            <a href="{{ route('index') }}" class="btn btn-primary">
-                トップに戻る
             </a>
       </div>
 

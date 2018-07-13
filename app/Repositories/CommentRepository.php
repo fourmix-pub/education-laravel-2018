@@ -9,7 +9,7 @@ class CommentRepository
 {
   public function movieCommentResource(Movie $movie)
   {
-    $comments = movie()->comments()->coments;
+    $comments = $movie->comments()->coments;
     return compact('comments');
   }
 }

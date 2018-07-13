@@ -46,7 +46,7 @@ class CommentController extends Controller
        $comment->user_id = $request->user()->id;
        $comment->save();
 
-       return redirect()->route('movies.show,compact('movie')')->with('status', '投稿しました。');
+       return redirect()->route('movies.show',compact('movie'))->with('status', '投稿しました。');
      }
 
     /**

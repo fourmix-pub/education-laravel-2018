@@ -44,7 +44,7 @@
                                   <input type="checkbox" name="is_published" value="1" class="form-check-input" id="exampleCheck1">
                                   <label class="form-check-label" for="exampleCheck1">投稿する</label>
                               </div>
-                              <button type="submit" class="btn btn-primary3">作成</button>
+                              <button type="submit" class="btn btn-primary4">作成</button>
                           </form>
                     </div>
                 </div>

@@ -19,9 +19,14 @@ class Movie extends Model
       });
   }
 
+  public function scopePublished($query)
+  {
+      return $query->where('is_published', true);
+  }
+
   public function comments()
   {
-    return $this->hasMany(Comment::class, 'movie_id', 'id');
+      return $this->hasMany(Comment::class, 'movie_id', 'id');
   }
 
 }

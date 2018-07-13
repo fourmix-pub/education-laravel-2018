@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\MovieRepository;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+     protected $movieRepository;
+
+     public function __construct(MovieRepository $repository)
+     {
+       $this->movieRepository = $repository;
+     }
     /**
      * Show the application dashboard.
      *
@@ -19,6 +21,6 @@ class HomeController extends Controller
 
      public function index()
      {
-         return view('index');
+         return view('index', $this->movieRepository->topMovieResource());
      }
 }
