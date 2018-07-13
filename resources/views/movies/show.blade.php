@@ -6,7 +6,9 @@
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header">
-                      <h3>{{ $movie->title }}</h3>
+                      <h3>{{ $movie->title }}
+                        <span class="margin">{{ $movie->movie_name }}</span>
+                      </h3>
                   </div>
 
                   <div class="card-body">
@@ -20,8 +22,7 @@
                   </div>
 
                   <div class="card-footer">
-                    <span class="left"></span>
-                    <span class="rignt">{{ $movie->title }}</span>
+                    <span class="left">{{ $movie->created_at }}</span>
                   </div>
               </div>
           </div>
@@ -33,10 +34,11 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-              <form　action="{{ route('comment.store', compact('movie')) }}" method="POST">
-                <div class="form-group">
+              <form action="{{ route('comment.store', compact('movie')) }}" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group" style="background-color: #DDDDDD;">
                     <label for="exampleInputEmail1">コメント</label>
-                    <input type="text"  name="contents" class="form-control" id="exampleInputEmail1">
+                    <input type="text"  name="contents" class="form-control" value="{{ old('contents') }}" id="exampleInputEmail1">
                 </div>
                 <button type="submit" class="btn btn-primary">投稿</button>
             </form>

@@ -29,21 +29,21 @@
                               {{ csrf_field() }}
                               <div class="form-group">
                                   <label for="exampleInputEmail1">タイトル</label>
-                                  <input type="text" name="title" value="" class="form-control">
+                                  <input type="text" name="title" value="{{ old('title') }}" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label for="exampleInputEmail1">映画名</label>
-                                  <input type="text" name="movie_name" value="" class="form-control">
+                                  <input type="text" name="movie_name" value="{{ old('movie_name') }}" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label for="exampleInputPassword1">感想</label>
-                                  <textarea class="form-control" name="contents"></textarea>
+                                  <textarea class="form-control" name="contents" value="{{ old('contents') }}"></textarea>
                               </div>
                               <div class="form-group form-check">
                                   <input type="checkbox" name="is_published" value="1" class="form-check-input" id="exampleCheck1">
                                   <label class="form-check-label" for="exampleCheck1">投稿する</label>
                               </div>
-                              <button type="submit" class="btn btn-primary3">作成</button>
+                              <button type="submit" class="btn btn-primary4">作成</button>
                           </form>
                     </div>
                 </div>

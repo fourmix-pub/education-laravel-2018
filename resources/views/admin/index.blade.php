@@ -31,6 +31,7 @@
                                       <a href="{{ route('admin.show', compact('movie')) }}">
                                         {{ $movie->title }}
                                       </a>
+                                      {{ $movie->movie_name }}
                                   </h3>
                                   <hr>
                               </div>

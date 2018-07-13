@@ -6,7 +6,9 @@
       <div class="col-md-12">
           <div class="card">
               <div class="card-header">
-                  <h3>{{ $movie->title }}</h3>
+                  <h3>{{ $movie->title }}
+                    <span class="margin">{{ $movie->movie_name }}</span>
+                  </h3>
               </div>
 
               <div class="card-body">
@@ -19,7 +21,7 @@
                   @endif
               </div>
 
-              <div class="card-footer">登録日時：</div>
+              <div class="card-footer">登録日時：{{ $movie->created_at }}</div>
           </div>
       </div>
   </div>

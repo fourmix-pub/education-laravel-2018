@@ -34,19 +34,19 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-     public function store(Movie $movie)
+     public function store(Movie $movie, Request $request)
      {
        $this->validate($request, [
            'contents' => 'required|string|max:300',
        ]);
 
        $comment = new Comment();
-       $comment->movie_name = $movie->movie_name;
+       $comment->movie_id = $movie->id;
        $comment->contents = $request->input('contents');
        $comment->user_id = $request->user()->id;
        $comment->save();
 
-       return redirect()->route('movies.show')->with('status', '投稿しました。');
+       return redirect()->route('movies.show,compact('movie')')->with('status', '投稿しました。');
      }
 
     /**

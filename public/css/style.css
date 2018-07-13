@@ -95,6 +95,8 @@ body{
     color: #DDD;
     background-color: #202020;
     border-color: #DDD;
+		width: 60%;
+		margin: 2px;
 }
 
 .btn-danger:hover {
@@ -178,8 +180,7 @@ a:hover{
 }
 
 .card-header {
-    background-color: rgba(255, 223, 126, 0.5);
-    border-bottom: 2px solid #e6bb98;
+    background-color: #BBBBBB;
 }
 
 .alert-success {
@@ -194,4 +195,7 @@ a:hover{
 
 .left{
 	text-align: left;
+}
+.back_white{
+	background-color: #DDDDDD;
 }
