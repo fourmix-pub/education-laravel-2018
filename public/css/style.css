@@ -11,21 +11,14 @@ body{
   background-size: cover;
 }
 
-.background2 {
-  background-image: url(../picture/background2.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 
 .jumbotron {
+	margin-top: -90px;
 	padding-top: 0px;
 	background: url(../picture/test2.png);
 	background-size: cover;
 	background-position: 50% 50%;
-	height: 300px;
+	height: 450px;
  border-radius: 0px;
 }
 
@@ -40,13 +33,15 @@ body{
 
 .btn-block {
     display: block;
-    width: 50%;
+    width: 100%;
 }
 
 .btn-primary {
     color: #8b0000;
     background-color: #CCCCCC;
     border-color: #B18904;
+		width: 60%;
+    margin: 2px;
 }
 
 .btn-primary:hover {
@@ -59,6 +54,8 @@ body{
     color: #8b0000;
     background-color: #B18904;
     border-color: #B18904;
+    width: 60%;
+    margin: 2px;
 }
 
 .btn-primary2:hover {
@@ -71,11 +68,26 @@ body{
     color: #eee;
     background-color: #8b0000;
     border-color: #B18904;
+		width: 60%;
+    margin: 2px;
 }
 
 .btn-primary3:hover {
     color: #8b0000;
     background-color: #B18904;
+    border-color: #ddd;
+}
+
+.btn-primary4 {
+    color: #8b0000;
+    background-color: #CCCCCC;
+    border-color: #B18904;
+    margin: 2px;
+}
+
+.btn-primary4:hover {
+    color: #DDD;
+    background-color: #404040;
     border-color: #ddd;
 }
 
@@ -93,7 +105,7 @@ body{
 
 
 .container{
-	margin-top: 60px;
+	margin-top: 20px;
 }
 
 .back{
@@ -145,4 +157,41 @@ a:hover{
 	padding:20px;
 	font-size: 20px;
 	background-color: #DDD;
+}
+
+.navbar-laravel {
+    background-color: #444;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.04);
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+.navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: #ffca2b;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #DDDDDD;
+}
+
+.card {
+    border-radius: 0px;
+}
+
+.card-header {
+    background-color: rgba(255, 223, 126, 0.5);
+    border-bottom: 2px solid #e6bb98;
+}
+
+.alert-success {
+    color: #af2432;
+    background-color: #cccccceb;
+    border-color: #6b6b6b;
+}
+
+.right{
+	text-align: right;
+}
+
+.left{
+	text-align: left;
 }

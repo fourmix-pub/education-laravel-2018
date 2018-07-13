@@ -25,19 +25,20 @@
                               </div>
                           </div>
                       @endif
-                          <form action="{{ route('admin.store') }}" method="POST">
+                          <form action="{{ route('admin.update',compact('movie')) }}" method="POST">
                               {{ csrf_field() }}
+                              {{ method_field('PUT') }}
                               <div class="form-group">
                                   <label for="exampleInputEmail1">タイトル</label>
-                                  <input type="text" name="title" value="" class="form-control">
+                                  <input type="text" name="title" value="{{ $movie->title }}" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label for="exampleInputEmail1">映画名</label>
-                                  <input type="text" name="movie_name" value="" class="form-control">
+                                  <input type="text" name="movie_name" value="{{ $movie->movie_name }}" class="form-control">
                               </div>
                               <div class="form-group">
                                   <label for="exampleInputPassword1">感想</label>
-                                  <textarea class="form-control" name="contents"></textarea>
+                                  <textarea class="form-control" name="contents" value="{{ $movie->contents }}"></textarea>
                               </div>
                               <div class="form-group form-check">
                                   <input type="checkbox" name="is_published" value="1" class="form-check-input" id="exampleCheck1">
@@ -50,7 +51,7 @@
             </div>
         </div>
       <br>
-      <div class="row text-center">
+      <div class="row justify-content-center text-center">
           <div class="col-md-12">
               <a href="{{ route('admin.index') }}" class="btn btn-primary">
                   戻る

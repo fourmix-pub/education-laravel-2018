@@ -13,13 +13,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('articles.create') }}" class="btn btn-primary btn-lg btn-block">
+                    <a href="{{ route('articles.create') }}" class="btn btn-primary">
                         記事作成
                     </a>
-                    <a href="{{ route('articles.index') }}" class="btn btn-warning btn-lg btn-block">
+                    <a href="{{ route('articles.index') }}" class="btn btn-warning">
                         記事一覧
                     </a>
-                    <a href="#" class="btn btn-info btn-lg btn-block">
+                    <a href="#" class="btn btn-info">
                         下書き
                     </a>
                 </div>

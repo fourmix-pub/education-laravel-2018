@@ -13,16 +13,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
                     @foreach ($movies as $movie)
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h3>
                                     <a href="{{ route('movies.show', compact('movie')) }}">
-                                        {{ $movie->title }}
-                                    </a>
+                                        <span class="left">{{ $movie->title }}</span></a>
+                                        <span class="margin">{{ $movie->user->name }}</span>
                                 </h3>
+                                <span class="left">{{ $movie->movie_name }}</span>
+                                <span class="margin">{{ $movie->created_at }}</span>
                                 <hr>
-                                <p>{{ $movie->created_at }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -31,10 +33,10 @@
         </div>
     </div>
     <br>
-    <div class="row justify-content-center">
+    <div class="text-center">
         <div class="col-md-12">
             </a>
-            <a href="{{ route('index') }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('index') }}" class="btn btn-primary">
                 戻る
             </a>
         </div>

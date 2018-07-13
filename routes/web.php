@@ -23,3 +23,7 @@ Route::get('/admin/create', 'Admin\MovieController@create')->name('admin.create'
 Route::post('/movies/store', 'Admin\MovieController@store')->name('admin.store');
 Route::get('/admin/show/{movie}', 'Admin\MovieController@show')->name('admin.show');
 Route::delete('/admin/delete/{movie}', 'Admin\MovieController@destroy')->name('admin.delete');
+Route::get('/admin/draft_show/{movie}', 'Admin\MovieController@draft_show')->name('admin.draft_show');
+Route::get('/admin/edit/{movie}', 'Admin\MovieController@edit')->name('admin.edit');
+Route::put('/admin/update/{movie}', 'Admin\MovieController@update')->name('admin.update');
+Route::post('/comment/store{movie}', 'CommentController@store')->name('comment.store');

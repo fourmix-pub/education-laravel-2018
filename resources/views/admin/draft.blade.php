@@ -18,7 +18,7 @@
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <h3>
-                                      <a href="{{ route('admin.show', compact('movie')) }}">
+                                      <a href="{{ route('admin.draft_show', compact('movie')) }}">
                                         {{ $movie->title }}
                                       </a>
                                   </h3>
@@ -27,10 +27,10 @@
                           </div>
                       @endforeach
 
-          <div class="row">
+          <div class="row text-center">
               <div class="col-md-12">
                   </a>
-                  <a href="{{ route('admin.index') }}" class="btn btn-primary btn-lg btn-block">
+                  <a href="{{ route('admin.index') }}" class="btn btn-primary">
                       戻る
                   </a>
                 </a>

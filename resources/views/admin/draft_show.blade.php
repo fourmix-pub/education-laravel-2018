@@ -24,10 +24,13 @@
       </div>
   </div>
        <br>
-       <div class="row justify-content-center text-center">
+       <div class="row text-center">
            <div class="col-md-12">
                <a href="{{ route('admin.index') }}" class="btn btn-primary">
                    戻る
+               </a>
+               <a href="{{ route('admin.edit', compact('movie')) }}" class="btn btn-primary">
+                   編集
                </a>
                <br>
                <form action="{{ route('admin.delete', compact('movie')) }}" method="POST">

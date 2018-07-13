@@ -34,7 +34,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             </a>
-            <a href="{{ route('home') }}" class="btn btn-primary btn-lg btn-block">
+            <a href="{{ route('home') }}" class="btn btn-primary">
                 戻る
             </a>
         </div>
