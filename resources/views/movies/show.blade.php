@@ -24,6 +24,21 @@
     </div>
       <br>
 
+      <div class="container">
+        @foreach ($movie->comments as $comment)
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                          <div class="text">{{ $comment->contents }}</div>
+                          <div class="name">{{ $comment->user->name }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+          </div>
+
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-12">

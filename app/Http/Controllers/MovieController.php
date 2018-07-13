@@ -4,22 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Movie;
 use App\Repositories\MovieRepository;
-use App\Repositories\CommentRepository;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
     protected $movieRepository;
-    protected $commentRepository;
     /**
      * Create a new controller instance.
      *
      * @param MovieRepository $movieRepository
      */
-    public function __construct(MovieRepository $movieRepository, CommentRepository $commentRepository)
+    public function __construct(MovieRepository $movieRepository)
     {
         $this->movieRepository = $movieRepository;
-        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -67,7 +64,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        $this->commentRepository->movieCommentResource($movie);
+        $movie->load(['comments']);
         return view('movies.show', compact('movie'));
     }
 

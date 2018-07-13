@@ -25,11 +25,11 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <h3>
                       <a href="{{ route('movies.show', compact('movie')) }}">
-                          <span class="left">{{ $movie->title }}</span></a>
-                          <span class="margin">{{ $movie->user->name }}</span>
+                          <span style="color:#B18904">{{ $movie->title }}</span></a>
+                          <span style="color:#DDDDDD">{{ $movie->user->name }}</span>
                   </h3>
-                  <span class="left">{{ $movie->movie_name }}</span>
-                  <span class="margin">{{ $movie->created_at }}</span>
+                  <span style="color:#DDDDDD; font-size:20px">{{ $movie->movie_name }}</span>
+                  <span style="color:#101010">{{ $movie->created_at }}</span>
                   <hr>
               </div>
           </div>

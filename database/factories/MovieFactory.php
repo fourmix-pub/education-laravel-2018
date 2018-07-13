@@ -9,7 +9,7 @@ $factory->define(App\Movie::class, function () use ($faker) {
     'user_id' => 1,
     'title' => $faker->text(10),
     'movie_name' => $faker->text(5),
-    'contents' => $faker->realText(200, 5),
+    'contents' => $faker->realText(500, 5),
     'is_published' => true,
   ];
 });
