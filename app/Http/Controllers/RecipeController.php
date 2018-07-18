@@ -51,20 +51,20 @@ class RecipeController extends Controller
         $this->validate($request, [  //入力チェック
           'title' => 'required|string|max:25',
           'material' => 'required|string',
-          'contents' => 'required|string',
+          'content' => 'required|string',
           'is_published' => 'nullable|boolean',
         ]);
 
         //インサート
         $recipe = new Recipe();
         $recipe->title = $request->input('title');
-        $recipe->contents = $request->input('contents');
+        $recipe->content = $request->input('content');
         $recipe->material = $request->input('material');
         $recipe->is_published = $request->input('is_published', false); //false(boolean)忘れない(公開するか)
         $recipe->user_id = $request->user()->id; //user_id 誰が作成したか
         $recipe->save();
 
-        return redirect()->route('resipes.index')->with('status', '作成しました。');
+        return redirect()->route('recipes.index')->with('status', '作成しました。');
     }
 
     /**
@@ -75,7 +75,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return view('recipes.show', compact('recipe'));
+        return view('recipes.u_show', $this->recipeRepository->commentResource($recipe));
     }
 
     /**
@@ -86,7 +86,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        return view('recipes.edit', compact('resipe')); //compact arrayを作ってくれる
+        return view('recipes.edit', compact('recipe')); //compact arrayを作ってくれる
     }
 
     /**
@@ -101,17 +101,17 @@ class RecipeController extends Controller
       $this->validate($request, [  //入力チェック
         'title' => 'required|string|max:25',
         'material' => 'required|string',
-        'contents' => 'required|string',
+        'content' => 'required|string',
         'is_published' => 'nullable|boolean',
       ]);
-
       $recipe->title = $request->input('title');
-      $recipe->contents = $request->input('contents');
       $recipe->material = $request->input('material');
+      $recipe->content = $request->input('content');
       $recipe->is_published = $request->input('is_published', false);
+      $recipe->user_id = $request->user()->id;
       $recipe->update();
 
-      return redirect()->route('resipes.show', compact('recipe'))
+      return redirect()->route('recipes.index')
         ->with('status', '編集しました。');
     }
 
@@ -121,7 +121,7 @@ class RecipeController extends Controller
      * @param  \App\Recipe  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $recipe)
+    public function destroy(Recipe $recipe)
     {
         $recipe->delete();
         return redirect()->route('recipes.index')
