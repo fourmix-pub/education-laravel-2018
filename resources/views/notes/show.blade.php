@@ -10,11 +10,6 @@
                 </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     いつ：{{ $note->when }}<br>
                     どこで：{{ $note->where }}<br>
                     誰が：{{ $note->who }}<br>
