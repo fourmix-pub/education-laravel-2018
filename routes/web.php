@@ -12,9 +12,7 @@
 */
 
 Auth::routes();
-/**
- *route
- */
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
 Route::post('/articles', 'ArticleController@store')->name('articles.store');
