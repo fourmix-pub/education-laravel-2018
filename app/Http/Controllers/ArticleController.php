@@ -11,12 +11,17 @@ class ArticleController extends Controller
     /**
      * @var ArticleRepository
      */
-    protected $articleRepository;
+    private $articleRepository;
 
+    /**
+     * ArticleController constructor.
+     * @param ArticleRepository $articleRepository
+     */
     public function __construct(ArticleRepository $articleRepository)
     {
         $this->articleRepository = $articleRepository;
     }
+
 
     /**
      * Display a listing of the resource.
