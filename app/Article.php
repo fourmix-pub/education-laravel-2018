@@ -29,7 +29,7 @@ class Article extends Model
 
     /**
      * ユーザリレーション
-     * 1対1
+     * １対１
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function user()
