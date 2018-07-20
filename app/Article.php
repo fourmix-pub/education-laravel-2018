@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    /**
+     * 型定義
+     * @var array
+     */
     protected $casts = [
         'is_published' => 'boolean',
     ];
 
+    /**
+     * 公開ステータスを取得する方法
+     * @return string
+     */
     public function status(): string
     {
         if ($this->is_published === true) {
@@ -19,6 +27,11 @@ class Article extends Model
         return '未公開';
     }
 
+    /**
+     * ユーザリレーション
+     * 1対1
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
