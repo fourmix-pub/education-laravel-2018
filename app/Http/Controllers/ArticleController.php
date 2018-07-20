@@ -11,7 +11,7 @@ class ArticleController extends Controller
     /**
      * @var ArticleRepository
      */
-    protected $articleRepository;
+    private $articleRepository;
 
     /**
      * ArticleController constructor.
@@ -21,6 +21,7 @@ class ArticleController extends Controller
     {
         $this->articleRepository = $articleRepository;
     }
+
 
     /**
      * Display a listing of the resource.
