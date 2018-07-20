@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-
     /**
      * @var ArticleRepository
      */
-    private $articleRepository;
+    protected $articleRepository;
 
     public function __construct(ArticleRepository $articleRepository)
     {
