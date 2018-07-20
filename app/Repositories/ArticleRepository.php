@@ -8,8 +8,7 @@ class ArticleRepository
 {
     public function articleResource()
     {
-        $articles = Article::all();
-
+        $articles = Article::published()->paginate(10);
         return compact('articles');
     }
 }

@@ -36,4 +36,15 @@ class Article extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    /**
+     * 公開中のもののみ表示
+     * @param $query
+     * @return mixed
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
 }
