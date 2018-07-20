@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    /**
-     * 型定義
-     * @var array
-     */
+
     protected $casts = [
         'is_published' => 'boolean',
     ];
