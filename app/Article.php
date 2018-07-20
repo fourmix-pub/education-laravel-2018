@@ -27,7 +27,11 @@ class Article extends Model
         return '未公開';
     }
 
-
+    /**
+     * ユーザリレーション
+     * １対１
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
