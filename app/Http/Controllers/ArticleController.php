@@ -8,18 +8,20 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    /**
+     * @var ArticleRepository
+     */
     protected $articleRepository;
 
     /**
-     * Create a new controller instance.
-     *
+     * ArticleController constructor.
      * @param ArticleRepository $articleRepository
      */
-    public function __construct(ArticleRepository $articleRepository)
+    public function  __construct(ArticleRepository $articleRepository)
     {
-        $this->middleware('auth');
         $this->articleRepository = $articleRepository;
     }
+
 
     /**
      * Display a listing of the resource.
